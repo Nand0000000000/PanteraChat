@@ -1,5 +1,3 @@
-Pensou por um segundo
-
 # Pantera Chat 🐆  
 Chatbot em tempo real para fãs da **FURIA** (CS 2), feito em React + Tailwind com backend Node + Express.  
 Responde via IA (GPT / alternativos) e possui comandos locais de estatísticas e calendário de partidas.

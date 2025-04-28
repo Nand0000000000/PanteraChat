@@ -10,7 +10,7 @@ Responde via IA (GPT / alternativos) e possui comandos locais de estatístic
 |----------|---------|
 | Chat em tempo real (WebSocket opcional) | Rota `/chat` com IA |
 | Comandos `/proximo`, `/stats <nick>` | Integração HLTV para partidas e stats |
-| Tema preto & branco (Tailwind) | Conexão OpenAI **ou** Together AI / Ollama |
+| Tema preto branco e roxo (Tailwind) | Conexão OpenAI **ou** Together AI / Ollama |
 | Markdown + embeds YouTube | Cache em memória para reduzir requisições |
 | PWA ready | Tratamento de erros e fallback offline |
 

@@ -2,4 +2,36 @@
 @tailwind components;
 @tailwind utilities;
 
-html,body,#root{height:100%;background:#000;color:#fff}
+@layer base {
+  html, body, #root {
+    @apply h-full bg-gray-900 text-white;
+  }
+}
+
+/* Estilização da barra de rolagem */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1a1d24;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #292b33;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3a3c44;
+}
+
+/* Animações */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message-animation {
+  animation: fadeIn 0.3s ease-out;
+}

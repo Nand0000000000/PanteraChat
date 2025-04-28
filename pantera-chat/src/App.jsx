@@ -48,33 +48,40 @@ export default function App() {
   }
 
   return (
-    <main className="flex flex-col h-full bg-black text-white">
-      <header className="flex items-center justify-center py-4 border-b border-neutral-800">
-        <h1 className="text-xl font-semibold tracking-wide">PanteraChat</h1>
+    <main className="flex flex-col h-full bg-gray-900 text-white">
+      <header className="flex items-center justify-center py-4 border-b border-neutral-800 bg-neutral-800 shadow-lg">
+        <h1 className="text-xl font-bold tracking-wide text-gray-100">PanteraChat</h1>
       </header>
 
-      <section className="flex-1 overflow-y-auto px-4 py-6 space-y-4">
-        {messages.map((msg, i) => (
-          <Message msg={msg} key={i} />
-        ))}
+      <section className="flex-1 overflow-y-auto p-4 md:p-6 space-y-6">
+        <div className="max-w-3xl mx-auto w-full space-y-6">
+          {messages.map((msg, i) => (
+            <div key={i} className={`flex ${msg.from === "bot" ? "justify-start" : "justify-end"}`}>
+              <Message msg={msg} />
+            </div>
+          ))}
+        </div>
         <div ref={bottomRef} />
       </section>
 
-      <footer className="p-4 border-t border-neutral-800">
-        <div className="flex items-center gap-2">
-          <input
-            value={input}
-            onChange={(e) => setInput(e.target.value)}
-            onKeyDown={(e) => e.key === "Enter" && handleSend()}
-            placeholder="Digite sua mensagem…"
-            className="flex-1 bg-neutral-900 rounded-xl px-4 py-3 outline-none"
-          />
-          <button
-            onClick={handleSend}
-            className="p-3 rounded-xl bg-neutral-900 hover:bg-neutral-800 transition"
-          >
-            {loading ? <Loader2 className="animate-spin" /> : <Send />}
-          </button>
+      <footer className="p-4 border-t border-neutral-800 bg-neutral-800 shadow-lg">
+        <div className="max-w-3xl mx-auto">
+          <div className="flex items-center gap-2 bg-neutral-700 rounded-xl p-1 shadow-lg">
+            <input
+              value={input}
+              onChange={(e) => setInput(e.target.value)}
+              onKeyDown={(e) => e.key === "Enter" && handleSend()}
+              placeholder="Digite sua mensagem…"
+              className="flex-1 bg-transparent rounded-xl px-4 py-3 outline-none text-gray-100 placeholder:text-neutral-500 focus:ring-2 focus:ring-primary transition-all"
+            />
+            <button
+              onClick={handleSend}
+              disabled={loading}
+              className="p-3 rounded-xl bg-primary hover:bg-primary-hover transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
+            >
+              {loading ? <Loader2 className="animate-spin" /> : <Send />}
+            </button>
+          </div>
         </div>
       </footer>
     </main>

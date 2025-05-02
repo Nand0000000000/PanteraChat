@@ -17,6 +17,8 @@ router.post("/", async (req, res) => {
       case "stats":
         if (!arg) return res.json({ reply: "Use /stats <nick>" });
         return res.json({ reply: await getPlayerStatsPlain(arg) });
+      case "time":
+        return res.json({ reply: "FalleN, Kscerato, Yuurih, Molodoy e Yekindar!" });
       default:
         return res.json({ reply: "Comando não reconhecido." });
     }
